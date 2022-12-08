@@ -12,4 +12,4 @@ plant = 'plant.png'
 
 # main page
 st.set_page_config(page_title='K-Means - Yedidya Harris', page_icon = plant, layout = 'wide', initial_sidebar_state = 'auto')
-st.title('yuval chemke web-app)
+st.title('yuval chemke web-app')
