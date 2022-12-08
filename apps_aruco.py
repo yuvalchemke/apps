@@ -38,5 +38,5 @@ app_mode = st.sidebar.selectbox('Dictionary',
 st.sidebar.markdown('---') # adds a devider (a line)
 
 # choosing a k value (either with +- or with a slider)
-  st.sidebar.number_input('Marker ID (number of clusters):', value=4, min_value = 1) # asks for input from the user
-  st.sidebar.markdown('---') # adds a devider (a line)
+st.sidebar.number_input('Marker ID (number of clusters):', value=4, min_value = 1) # asks for input from the user
+st.sidebar.markdown('---') # adds a devider (a line)
