@@ -29,7 +29,7 @@ st.markdown(
 )
 
 st.sidebar.title('Work Flow')
-st.sidebar.subheader('Upload an image with an AruCu on it /n https://chev.me/arucogen/')
+st.sidebar.subheader('Upload an image with an AruCu on it  https://chev.me/arucogen/')
 
 # add dropdown to select pages on left
 app_mode = st.sidebar.selectbox('Dictionary',
