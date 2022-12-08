@@ -39,4 +39,4 @@ st.sidebar.title('Work Flow')
 st.sidebar.subheader('fdsfsfsdf')
 
 # add dropdown to select pages on left
-app_mode = st.sidebar.selectbox('Dictionary', ['4X4', '5X5', '6X6', '7X7])
+app_mode = st.sidebar.selectbox('Dictionary', ['4X4', '5X5', '6X6', '7X7'])
