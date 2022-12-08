@@ -34,3 +34,9 @@ st.sidebar.subheader('Upload an image with an AruCu on it  https://chev.me/aruco
 # add dropdown to select pages on left
 app_mode = st.sidebar.selectbox('Dictionary',
                                   ['4X4', '5X5', '6X6', '7X7'])
+
+st.sidebar.markdown('---') # adds a devider (a line)
+
+# choosing a k value (either with +- or with a slider)
+  Marker ID = st.sidebar.number_input('Marker ID (number of clusters):', value=4, min_value = 1) # asks for input from the user
+  st.sidebar.markdown('---') # adds a devider (a line)
