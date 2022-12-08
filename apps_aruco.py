@@ -8,9 +8,7 @@ Original file is located at
 """
 # lobaries
 import streamlit as st
-import cv2
-import numpy as np
-import skimage.io as io
+
 
 # vars
 plant = 'plant.png'
