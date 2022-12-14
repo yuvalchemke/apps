@@ -74,9 +74,9 @@ img_file_buffer = st.sidebar.file_uploader("Upload an image", type=['jpg', 'jpeg
    # assign the uplodaed image from the buffer, by reading it in
 if img_file_buffer is not None:
   image = io.imread(img_file_buffer)
-  else: # if no image was uploaded, then segment the demo image
-    demo_image = DEMO_IMAGE
-    image = io.imread(demo_image)
+    else: # if no image was uploaded, then segment the demo image
+        demo_image = DEMO_IMAGE
+        image = io.imread(demo_image)
 
     # display on the sidebar the uploaded image
 st.sidebar.text('Original Image')
