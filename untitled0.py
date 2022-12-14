@@ -84,7 +84,7 @@ st.sidebar.image(image)
 
 
 
-!pip install opencv-contrib-python
+
 
 # import libs
 from skimage import measure, io, img_as_ubyte, morphology, util, color
