@@ -16,7 +16,7 @@ img_file_buffer = st.sidebar.file_uploader("Upload an image", type=['jpg', 'jpeg
 if img_file_buffer is not None:
     image = io.imread(img_file_buffer)
 else: # if no image was uploaded, then segment the demo image
-    demo_image = tomato.jpg
+    demo_image = 'tomato.jpg'
     image = io.imread(demo_image)
 
  # Display the result on the right (main frame)
