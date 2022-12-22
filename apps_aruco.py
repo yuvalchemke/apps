@@ -74,10 +74,18 @@ st.image(image)
 
 
 def arocu(image, dictionary, iid, size):
-    
-# Aruco Area
-  aruco_area = cv2.contourArea (corners[0])
+    # Aruco Area
+    aruco_area = cv2.contourArea (corners[0])
+  
+    if dictionary == 4X4:
+        a = 4*4
+    if dictionary == 5X5:
+        a = 5*5
+    if dictionary == 6X6:
+        a = 6*6
+    if dictionary == 7X7:
+        a = 7*7
 
-  # Pixel to cm ratio
-  pixel_cm_ratio = dictionary / aruco_area # since the AruCo is 5*5 cm, so we devide 25 cm*cm by the number of pixels
-  print('Ratio - Each pixel is',pixel_cm_ratio, 'cm*cm')
+    # Pixel to cm ratio
+    pixel_cm_ratio = a / aruco_area # since the AruCo is 5*5 cm, so we devide 25 cm*cm by the number of pixels
+    print('Ratio - Each pixel is',pixel_cm_ratio, 'cm*cm')
