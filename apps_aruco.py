@@ -5,7 +5,7 @@ import streamlit as st
 import numpy as np
 # import cv2
 import skimage as io
-#from skimage import skimage.io as io
+from skimage import io, filters, feature
 # import matplotlib.pyplot as plt
 
 # vars
