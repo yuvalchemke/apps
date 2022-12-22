@@ -1,5 +1,6 @@
 # libaries
 import streamlit as st
+import skimage.io as io
 
 # vars
 plant = 'plant.png'
