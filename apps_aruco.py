@@ -15,19 +15,6 @@ st.set_page_config(page_title='Plant-Since-AruCo', page_icon = plant, layout = '
 st.title('yuval chemke web-app')
 
 # side bar
-# read an image from the user
-img_file_buffer = st.sidebar.file_uploader("Upload an image", type=['jpg', 'jpeg', 'png'])
-   
-# assign the uplodaed image from the buffer, by reading it in
-if img_file_buffer is not None:
-    image = io.imread(img_file_buffer)
-else: # if no image was uploaded, then segment the demo image
-    demo_image = 'tomato.jpg'
-    image = io.imread(demo_image)
-
- # Display the result on the right (main frame)
-st.subheader('Image')
-st.image(image)
 
 st.sidebar.markdown('---') # adds a devider (a line)
 
@@ -70,3 +57,16 @@ st.sidebar.markdown('---') # adds a devider (a line)
 
 
 
+# read an image from the user
+img_file_buffer = st.sidebar.file_uploader("Upload an image", type=['jpg', 'jpeg', 'png'])
+   
+# assign the uplodaed image from the buffer, by reading it in
+if img_file_buffer is not None:
+    image = io.imread(img_file_buffer)
+else: # if no image was uploaded, then segment the demo image
+    demo_image = 'tomato.jpg'
+    image = io.imread(demo_image)
+
+ # Display the result on the right (main frame)
+st.subheader('Image')
+st.image(image)
