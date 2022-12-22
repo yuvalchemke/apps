@@ -57,3 +57,7 @@ if img_file_buffer is not None:
 else: # if no image was uploaded, then segment the demo image
     demo_image = tomato.jpg
     image = io.imread(demo_image)
+
+ # Display the result on the right (main frame)
+st.subheader('Image')
+st.image(image, use_column_width=True)
