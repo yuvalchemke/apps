@@ -48,12 +48,12 @@ app_mode = st.sidebar.selectbox('Dictionary',
 st.sidebar.markdown('---') # adds a devider (a line)
 
 # choosing a k value (either with +- or with a slider)
-st.sidebar.number_input('Marker ID', value=4, min_value = 1) # asks for input from the user
+iid = st.sidebar.number_input('Marker ID', value=4, min_value = 1) # asks for input from the user
 
 st.sidebar.markdown('---') # adds a devider (a line)
 
 # choosing a k value (either with +- or with a slider)
-st.sidebar.number_input('Marker size, mm', value=100, min_value = 1) # asks for input from the user
+size = st.sidebar.number_input('Marker size, mm', value=100, min_value = 1) # asks for input from the user
 st.sidebar.markdown('---') # adds a devider (a line)
 
 
@@ -71,3 +71,13 @@ else: # if no image was uploaded, then segment the demo image
  # Display the result on the right (main frame)
 st.subheader('Image')
 st.image(image)
+
+
+def arocu(image, dictionary, iid, size):
+    
+# Aruco Area
+  aruco_area = cv2.contourArea (corners[0])
+
+  # Pixel to cm ratio
+  pixel_cm_ratio = dictionary / aruco_area # since the AruCo is 5*5 cm, so we devide 25 cm*cm by the number of pixels
+  print('Ratio - Each pixel is',pixel_cm_ratio, 'cm*cm')
