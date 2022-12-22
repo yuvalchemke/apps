@@ -77,13 +77,13 @@ def arocu(image, dictionary, iid, size):
     # Aruco Area
     aruco_area = cv2.contourArea (corners[0])
   
-    if dictionary == 4X4:
+    if dictionary == '4X4':
         a = 4*4
-    if dictionary == 5X5:
+    if dictionary == '5X5':
         a = 5*5
-    if dictionary == 6X6:
+    if dictionary == '6X6':
         a = 6*6
-    if dictionary == 7X7:
+    if dictionary == '7X7':
         a = 7*7
 
     # Pixel to cm ratio
