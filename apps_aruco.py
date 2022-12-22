@@ -71,4 +71,3 @@ else: # if no image was uploaded, then segment the demo image
  # Display the result on the right (main frame)
 st.subheader('Image')
 st.image(image)
-
