@@ -60,4 +60,4 @@ else: # if no image was uploaded, then segment the demo image
 
  # Display the result on the right (main frame)
 st.subheader('Image')
-st.image(image, use_column_width=True)
+st.image(image)
