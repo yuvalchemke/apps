@@ -1,7 +1,7 @@
 # libaries
 # import libs
 import streamlit as st
-import cv2
+# import cv2
 import numpy as np
 import skimage.io as io
 #import matplotlib.pyplot as plt
