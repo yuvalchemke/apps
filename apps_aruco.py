@@ -2,10 +2,10 @@
 # import libs
 import requests
 import streamlit as st
-# import cv2
 import numpy as np
-import skimage.io as io
-#import matplotlib.pyplot as plt
+# import cv2
+# import skimage.io as io
+# import matplotlib.pyplot as plt
 
 # vars
 plant = 'plant.png'
