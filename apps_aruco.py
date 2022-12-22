@@ -45,3 +45,15 @@ st.sidebar.markdown('---') # adds a devider (a line)
 # choosing a k value (either with +- or with a slider)
 st.sidebar.number_input('Marker size, mm', value=100, min_value = 1) # asks for input from the user
 st.sidebar.markdown('---') # adds a devider (a line)
+
+
+
+# read an image from the user
+img_file_buffer = st.sidebar.file_uploader("Upload an image", type=['jpg', 'jpeg', 'png'])
+   
+# assign the uplodaed image from the buffer, by reading it in
+if img_file_buffer is not None:
+    image = io.imread(img_file_buffer)
+else: # if no image was uploaded, then segment the demo image
+    demo_image = DEMO_IMAGE
+    image = io.imread(demo_image)
