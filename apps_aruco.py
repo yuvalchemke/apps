@@ -71,3 +71,66 @@ else: # if no image was uploaded, then segment the demo image
  # Display the result on the right (main frame)
 st.subheader('Image')
 st.image(image)
+
+# call the function to segment the image
+	# Load Aruco detector
+	parameters = cv2.aruco.DetectorParameters_create()
+	aruco_dict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_4X4_50)
+	
+	# Get Aruco marker
+	corners, _, _ = cv2.aruco.detectMarkers(image, aruco_dict, parameters=parameters)
+	
+	# Draw polygon around the marker
+	int_corners = np.int0(corners)
+	cv2.polylines(image, int_corners, True, (0, 255, 0), 50)
+	#plt.imshow(image)
+	
+	# Aruco Area
+	aruco_area = cv2.contourArea (corners[0])
+	# Pixel to cm ratio
+	pixel_cm_ratio = 4*4 / aruco_area# since the AruCo is 4*4 cm, so we devide 16 cm*cm by the number of pixels
+	
+# segment using kmeans
+image =io.imread(f'{folder_path}/images/tomato.jpg')
+k=3
+attempts=10
+segmented_kmeans, labels, centers = segment_image_kmeans(image, k, attempts)
+#plt.imshow(segmented_kmeans)
+
+# lets get the index of the leafs row 
+
+for i,center in enumerate(centers):
+  if np.all(center == ([133,165,26])):
+    leaf_center_index = i
+    #print(leaf_center_index)
+	
+# copy source img
+img = image.copy()
+masked_image = img.copy()
+
+# convert to the shape of a vector of pixel values (like suits for kmeans)
+masked_image = masked_image.reshape((-1, 3))
+
+index_to_remove = leaf_center_index
+
+# color (i.e cluster) to exclude
+list_of_cluster_numbers_to_exclude = list(range(k)) # create a list that has the number from 0 to k-1
+list_of_cluster_numbers_to_exclude.remove(index_to_remove) # remove the cluster of leaf that we want to keep, and not black out
+for cluster in list_of_cluster_numbers_to_exclude:
+  masked_image[labels== cluster] = [0, 0, 0] # black all clusters except cluster leaf_center_index
+
+# convert back to original shape
+masked_image = masked_image.reshape(img.shape)
+masked_image_grayscale = rgb2gray(masked_image)
+
+# show the image
+color_map=input()
+plt.imshow(masked_image_grayscale, cmap=color_map)
+plt.colorbar()
+
+# count how many pixels are in the foreground and bg
+leaf_count = np.sum(np.array(masked_image_grayscale) >0)
+bg_count = np.sum(np.array(masked_image_grayscale) ==0)
+
+print('Leaf px count:', leaf_count, 'px')
+print('Area:', leaf_count*pixel_cm_ratio, 'cm\N{SUPERSCRIPT TWO},', 'which is:',  f'{0.0001*leaf_count*pixel_cm_ratio:.3f}', 'm\N{SUPERSCRIPT TWO}')
